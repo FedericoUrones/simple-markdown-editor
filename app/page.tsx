@@ -6,15 +6,17 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 
 export default function Home() {
-  const hasInitialValue = useEditorStore((state) => state.hasInitialValue);
+  const setEditorValue = useEditorStore((state) => state.setEditorValue);
 
   useEffect(() => {
-    if (hasInitialValue) {
+    const savedValue = localStorage.getItem("editorValue");
+    if (savedValue) {
+      setEditorValue(savedValue);
       toast.info("Welcome back!");
     } else {
       toast.success("Welcome to Simple Markdown Editor!");
     }
-  }, [hasInitialValue]);
+  }, [setEditorValue]);
 
   return (
     <>
