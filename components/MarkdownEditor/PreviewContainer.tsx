@@ -10,7 +10,7 @@ const PreviewContainer = memo(function PreviewContainer() {
     <div
       className="p-1 px-4 rounded-lg bg-white border border-gray-300 
     focus:outline-none focus:ring-2 text-black 
-    w-full h-[200px] md:h-full md:min-h-[70vh]"
+    w-full h-[200px] md:h-full md:min-h-[70vh] overflow-y-auto"
     >
       {editorValue.length > 0 ? (
         <Markdown className={style.reactMarkDown} remarkPlugins={[remarkGfm]}>
