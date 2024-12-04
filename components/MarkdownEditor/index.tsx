@@ -5,16 +5,18 @@ import Editor from "./Editor";
 import PreviewContainer from "./PreviewContainer";
 
 const MarkdownEditor = () => {
-  const isMobile = window.screen.width < 1280;
-
   return (
     <div className="md:grid md:grid-cols-2 gap-4 w-full h-[70vh]">
       <div>
         <Editor />
-        <Counter show={isMobile} />
+        <div className="md:hidden">
+          <Counter />
+        </div>
       </div>
       <PreviewContainer />
-      <Counter show={!isMobile} />
+      <div className="md:block hidden">
+        <Counter />
+      </div>
     </div>
   );
 };
