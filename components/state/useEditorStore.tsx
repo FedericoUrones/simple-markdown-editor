@@ -13,11 +13,11 @@ const getInitialValue = () => {
   return localStorage.getItem("editorValue") ?? "";
 };
 
-export const useEditorStore = create<EditorStore>((set) => ({
+export const useEditorStore = create<EditorStore>((set, get) => ({
   editorValue: getInitialValue(),
   hasInitialValue: !!getInitialValue(),
   setEditorValue: (value) => {
-    if (value !== useEditorStore.getState().editorValue) {
+    if (value !== get().editorValue) {
       localStorage.setItem("editorValue", value);
       set({ editorValue: value, charsCount: value.length });
     }
