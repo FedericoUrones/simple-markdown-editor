@@ -7,14 +7,19 @@ interface EditorStore {
   hasInitialValue: boolean;
 }
 
+const getInitialValue = () => {
+  const savedValue = localStorage.getItem("editorValue");
+  return savedValue ?? "";
+};
+
 export const useEditorStore = create<EditorStore>((set) => ({
-  editorValue: localStorage.getItem("editorValue") ?? "",
-  hasInitialValue: !!localStorage.getItem("editorValue"),
+  editorValue: getInitialValue(),
+  hasInitialValue: !!getInitialValue(),
   setEditorValue: (value) => {
     if (value !== useEditorStore.getState().editorValue) {
       localStorage.setItem("editorValue", value);
       set({ editorValue: value, charsCount: value.length });
     }
   },
-  charsCount: 0,
+  charsCount: getInitialValue().length,
 }));

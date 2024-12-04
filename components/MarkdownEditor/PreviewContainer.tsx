@@ -7,7 +7,11 @@ import style from "./markdown-styles.module.css";
 const PreviewContainer = memo(function PreviewContainer() {
   const editorValue = useEditorStore((state) => state.editorValue);
   return (
-    <div className="p-1 px-4 rounded-lg bg-white border border-gray-300 focus:outline-none focus:ring-2 text-black w-full h-[200px] md:h-full overflow-y-auto">
+    <div
+      className="p-1 px-4 rounded-lg bg-white border border-gray-300 
+    focus:outline-none focus:ring-2 text-black 
+    w-full h-[200px] md:h-full md:min-h-[70vh]"
+    >
       {editorValue.length > 0 ? (
         <Markdown className={style.reactMarkDown} remarkPlugins={[remarkGfm]}>
           {editorValue}
