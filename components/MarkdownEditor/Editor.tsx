@@ -1,10 +1,10 @@
-import { useContext } from "react";
-import { MarkdownEditorContext } from "@/components/state/context";
+import { useEditorStore } from "@/components/state/useEditorStore";
 
 export const MAX_EDITOR_LENGTH = 20000;
 
 const Editor = () => {
-  const { editorValue, setEditorValue } = useContext(MarkdownEditorContext);
+  const editorValue = useEditorStore((state) => state.editorValue);
+  const setEditorValue = useEditorStore((state) => state.setEditorValue);
 
   return (
     <textarea

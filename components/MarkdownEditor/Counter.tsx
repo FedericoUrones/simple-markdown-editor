@@ -1,19 +1,16 @@
-import { useContext } from "react";
-import { MarkdownEditorContext } from "@/components/state/context";
+import { useEditorStore } from "../state/useEditorStore";
 import { MAX_EDITOR_LENGTH } from "./Editor";
 
 const Counter = ({ show }: { show: boolean }) => {
-  const { editorValue } = useContext(MarkdownEditorContext);
+  const charsCount = useEditorStore((state) => state.charsCount);
 
   return show ? (
     <p
       className={`text-sm mb-2 ${
-        editorValue.length < MAX_EDITOR_LENGTH
-          ? "text-gray-500"
-          : "text-red-500"
+        charsCount < MAX_EDITOR_LENGTH ? "text-gray-500" : "text-red-500"
       }`}
     >
-      {editorValue.length} / {MAX_EDITOR_LENGTH}
+      {charsCount} / {MAX_EDITOR_LENGTH}
     </p>
   ) : null;
 };

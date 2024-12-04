@@ -38,6 +38,17 @@ You can see a live demo of the project [here](https://simple-markdown-editor-the
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [React Markdown](https://github.com/remarkjs/react-markdown)
+- [React Toastify](https://fkhadra.github.io/react-toastify/introduction/)
+
+## Limitations
+
+- Only 20,000 characters are allowed.
+- If you try to write more than 20,000 characters, the editor will show a red counter.
+
+## Features
+
+- Counter of characters.
+- Load from local storage.
 
 ## License
 

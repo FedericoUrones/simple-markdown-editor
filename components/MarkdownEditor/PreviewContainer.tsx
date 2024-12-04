@@ -1,11 +1,11 @@
-import { memo, useContext } from "react";
+import { memo } from "react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { useEditorStore } from "@/components/state/useEditorStore";
 import style from "./markdown-styles.module.css";
-import { MarkdownEditorContext } from "@/components/state/context";
 
 const PreviewContainer = memo(function PreviewContainer() {
-  const { editorValue } = useContext(MarkdownEditorContext);
+  const editorValue = useEditorStore((state) => state.editorValue);
   return (
     <div className="p-1 px-4 rounded-lg bg-white border border-gray-300 focus:outline-none focus:ring-2 text-black w-full h-[200px] md:h-full overflow-y-auto">
       {editorValue.length > 0 ? (
