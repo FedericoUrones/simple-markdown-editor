@@ -10,11 +10,7 @@ interface EditorStore {
 }
 
 const getInitialValue = () => {
-  if (typeof window !== "undefined") {
-    const savedValue = localStorage.getItem("editorValue");
-    return savedValue ?? "";
-  }
-  return "";
+  return localStorage.getItem("editorValue") ?? "";
 };
 
 export const useEditorStore = create<EditorStore>((set) => ({

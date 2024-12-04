@@ -1,3 +1,5 @@
+"use client";
+
 import Counter from "./Counter";
 import Editor from "./Editor";
 import PreviewContainer from "./PreviewContainer";
