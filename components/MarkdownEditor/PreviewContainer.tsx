@@ -7,7 +7,7 @@ import { MarkdownEditorContext } from "@/components/state/context";
 const PreviewContainer = memo(function PreviewContainer() {
   const { editorValue } = useContext(MarkdownEditorContext);
   return (
-    <div className="p-1 px-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 text-black w-full h-[200px] md:h-full bg-white">
+    <div className="p-1 px-4 rounded-lg bg-white border border-gray-300 focus:outline-none focus:ring-2 text-black w-full h-[200px] md:h-full overflow-y-auto">
       {editorValue.length > 0 ? (
         <Markdown className={style.reactMarkDown} remarkPlugins={[remarkGfm]}>
           {editorValue}
